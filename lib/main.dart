@@ -14,6 +14,8 @@ void main() async {
 class MyApp extends StatelessWidget {
   final AuthService _authService = AuthService();
 
+  MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -32,7 +34,7 @@ class MyApp extends StatelessWidget {
 
 class HomeScreen extends StatelessWidget {
   final AuthService authService;
-  HomeScreen({required this.authService});
+  const HomeScreen({super.key, required this.authService});
 
   @override
   Widget build(BuildContext context) {

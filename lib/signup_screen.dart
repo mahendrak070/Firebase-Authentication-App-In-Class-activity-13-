@@ -3,7 +3,7 @@ import 'auth_service.dart';
 
 class SignUpScreen extends StatefulWidget {
   final AuthService authService;
-  SignUpScreen({required this.authService});
+  const SignUpScreen({super.key, required this.authService});
 
   @override
   _SignUpScreenState createState() => _SignUpScreenState();

@@ -3,7 +3,7 @@ import 'auth_service.dart';
 
 class ProfileScreen extends StatelessWidget {
   final AuthService authService;
-  ProfileScreen({required this.authService});
+  const ProfileScreen({super.key, required this.authService});
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +58,7 @@ class ProfileScreen extends StatelessWidget {
   }
 
   void _showChangePasswordDialog(BuildContext context) {
-    final _passwordController = TextEditingController();
+    final passwordController = TextEditingController();
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -68,7 +68,7 @@ class ProfileScreen extends StatelessWidget {
           style: TextStyle(color: Colors.white),
         ),
         content: TextField(
-          controller: _passwordController,
+          controller: passwordController,
           style: TextStyle(color: Colors.white),
           decoration: InputDecoration(
             labelText: 'New Password',
@@ -82,10 +82,10 @@ class ProfileScreen extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () async {
-              if (_passwordController.text.length >= 6) {
+              if (passwordController.text.length >= 6) {
                 try {
                   await authService.currentUser!
-                      .updatePassword(_passwordController.text);
+                      .updatePassword(passwordController.text);
                   Navigator.pop(context);
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(content: Text('Password changed successfully')),

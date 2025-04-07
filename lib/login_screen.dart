@@ -4,7 +4,7 @@ import 'profile_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   final AuthService authService;
-  LoginScreen({required this.authService});
+  const LoginScreen({super.key, required this.authService});
 
   @override
   _LoginScreenState createState() => _LoginScreenState();
